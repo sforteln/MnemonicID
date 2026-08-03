@@ -47,6 +47,7 @@ let id = vendor.createID()
 ### Install
 
 #### From Xcode
+
 In Xcode, select `File > Swift Packages > Add Package Dependency...`
 
 Enter the repository URL: `https://github.com/sforteln/MnemonicId`
