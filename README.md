@@ -8,7 +8,7 @@ While building systems that integrate with AIs, I noticed that they had real dif
 
 It's really simple. There is a list of ~7,500 words (you can configure it with your own word list if you want), and it picks randomly from it for each term in the ID. To remove the small risk that the AI might accidentally see `swan-swan` and collapse it to just `swan`, the library does not allow adjacent duplicates but does allow IDs like `swan-jump-swan`. 
 
-This library does not in any way keep track of used IDs; that is the responsibility of the integrating app. With ~10k words and three terms, collisions should be rare. And you can reduce this by only assigning Mnemonic Ids to AI-facing data and internally using a traditional UUID. 
+This library does not in any way keep track of used IDs; that is the responsibility of the integrating app. With ~7,500 words and three terms, collisions should be rare. And you can reduce this by only assigning Mnemonic Ids to AI-facing data and internally using a traditional UUID. 
 
 #### Prefixes
 
@@ -48,6 +48,19 @@ let id = vendor.createID()
 In Xcode, select `File > Swift Packages > Add Package Dependency...`
 
 Enter the repository URL: `https://github.com/simonfortelny/MnemonicId`
+
+Or add it directly to your `Package.swift`:
+``` swift
+dependencies: [
+    .package(url: "https://github.com/simonfortelny/MnemonicId", from: "1.0.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: ["MnemonicID"]
+    )
+]
+```
 
 ### License
 This repository is licensed under the MIT license. See the [LICENSE](./LICENSE) file for more information.
